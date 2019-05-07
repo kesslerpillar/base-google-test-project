@@ -14,9 +14,9 @@
 class LightController
 {
     private:
-        LightSwitch *lightSwitch;
+        std::shared_ptr<LightSwitch> lightSwitch;
     public:
-        LightController(LightSwitch *aSwitch);
+        LightController(std::shared_ptr<LightSwitch>& lightSwitch);
 
         void update(std::vector<std::shared_ptr<Light> > &lights);
 };
