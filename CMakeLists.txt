@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 3.5)
 
 # Set the project name
-project (google_test_example)
+project (light-controller)
 
 # Add an library for the example classes
-add_library(example_google_test 
-    Reverse.cpp
-)
+add_library(example_google_test
+        src/main/LightController.cpp
+        src/main/api/LightSwitch.h src/main/api/Light.h)
 
 
 #############################################
@@ -18,7 +18,7 @@ add_subdirectory(3rd_party/google-test)
 enable_testing()
 
 # Add a testing executable
-add_executable(unit_tests unit_tests.cpp)
+add_executable(unit_tests src/test/LightControllerTest.cpp src/main/api/LightSwitch.h src/test/TestLightSwitch.cpp src/test/TestLight.cpp)
 
 target_link_libraries(unit_tests
     example_google_test
