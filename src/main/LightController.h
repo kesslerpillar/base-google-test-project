@@ -13,10 +13,12 @@
  */
 class LightController
 {
-public:
-    LightController(LightSwitch *aSwitch);
+    private:
+        LightSwitch *lightSwitch;
+    public:
+        LightController(LightSwitch *aSwitch);
 
-    void update(std::vector<std::shared_ptr<Light> > &lights);
+        void update(std::vector<std::shared_ptr<Light> > &lights);
 };
 
 // LightController(Input input, Light[] lights)
