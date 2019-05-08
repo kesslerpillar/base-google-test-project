@@ -1,9 +1,9 @@
 #include "LightController.h"
 
-LightController::LightController(std::shared_ptr<LightSwitch>& lightSwitch) : lightSwitch (lightSwitch) {
+LightController::LightController(std::shared_ptr<LightSwitch>& lightSwitch, std::vector<std::shared_ptr<Light> >& lights) : lightSwitch (lightSwitch), lights (lights){
 }
 
-void LightController::update(std::vector<std::shared_ptr<Light> > &lights) {
+void LightController::update() {
 
     for(int i = 0; i < lights.size(); i++){
         if(lightSwitch->isOn()){

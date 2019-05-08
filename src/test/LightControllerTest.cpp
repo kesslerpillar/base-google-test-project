@@ -26,8 +26,8 @@ TEST_F(LightControllerTest, shouldTurnOnLights )
 
     shared_ptr<LightSwitch> lightSwitch(new TestLightSwitch(true));
 
-    LightController lightController(lightSwitch);
-    lightController.update(lights);
+    LightController lightController(lightSwitch, lights);
+    lightController.update();
 
     EXPECT_EQ(0, firstLight->getTurnOffCount());
     EXPECT_EQ(0, secondLight->getTurnOffCount());
@@ -48,8 +48,8 @@ TEST_F(LightControllerTest, shouldTurnOffLights )
 
     shared_ptr<LightSwitch> lightSwitch(new TestLightSwitch(false));
 
-    LightController lightController(lightSwitch);
-    lightController.update(lights);
+    LightController lightController(lightSwitch, lights);
+    lightController.update();
 
     EXPECT_EQ(1, firstLight->getTurnOffCount());
     EXPECT_EQ(1, secondLight->getTurnOffCount());
